@@ -1,3 +1,3 @@
 # Advent of Code Solutions 2024
 
-Solutions for https://adventofcode.com/
+Solutions for the 2024 puzzles on https://adventofcode.com/
