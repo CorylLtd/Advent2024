@@ -27,8 +27,6 @@ def isSafe(line):
             return True
     return False
 
-
-
 safeCount = 0
 # load the data
 with open('input.txt') as f:
