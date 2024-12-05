@@ -11,8 +11,8 @@ def is_valid_order(p):
 def fix_order(p):
     while not is_valid_order(p):
         for h in range(0, len(p)-1):
-                if (p[h], p[h+1]) not in order_rules:
-                    p[h], p[h+1] = p[h+1], p[h]
+            if (p[h], p[h+1]) not in order_rules:
+                p[h], p[h+1] = p[h+1], p[h]
     return p
 
 with open('input.txt') as f:
