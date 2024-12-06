@@ -39,7 +39,7 @@ loop_count = 0
 for i in range(len(grid)):
     for j in range(len(grid[0])):
         print('Checking', i, j, 'loop count', loop_count)
-        if count_steps_to_exit_room((i, j)) == -1:
+        if grid[i][j] != '#' and count_steps_to_exit_room((i, j)) == -1:
             loop_count += 1
 print('Loop count', loop_count)
 
