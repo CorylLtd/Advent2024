@@ -3,28 +3,28 @@ def read_input():
         return f.read().strip()
 
 def convert_to_filemap(data):
-    filemap = []
-    fileId = 0
-    isSpace = False
+    fm = []
+    file_id = 0
+    is_space = False
     for c in data:
         count = int(c)
-        for i in range(count):
-            if isSpace:
-                filemap.append(-1)
+        for index in range(count):
+            if is_space:
+                fm.append(-1)
             else:
-                filemap.append(fileId)
-        if isSpace:
-            isSpace = False
+                fm.append(file_id)
+        if is_space:
+            is_space = False
         else:
-            isSpace = True
-            fileId += 1
-    return filemap
+            is_space = True
+            file_id += 1
+    return fm
 
 def get_checksum(fm):
     checksum = 0
-    for i in range(len(fm)):
-        if fm[i] != -1:
-            checksum += fm[i] * i
+    for index in range(len(fm)):
+        if fm[index] != -1:
+            checksum += fm[index] * index
     return checksum
 
 v = read_input()
@@ -42,25 +42,25 @@ print("Part 1 checksum", get_checksum(filemap))
 
 # Part 2
 
-def get_space_index(fm, size):
-    for i in range(len(fm) - size + 1):
-        if fm[i] == -1:
+def get_space_index(fm, space_size):
+    for index in range(len(fm) - space_size + 1):
+        if fm[index] == -1:
             found = True
-            for j in range(1, size):
-                if fm[i+j] != -1:
+            for j in range(1, space_size):
+                if fm[index + j] != -1:
                     found = False
-                    break
+
             if found:
-                return i
+                return index
     return -1
 
 def get_file_size(fm, index):
-    size = 0
+    file_size = 0
     c = fm[index]
     while fm[index] == c and index >= 0:
-        size += 1
+        file_size += 1
         index -= 1
-    return size
+    return file_size
 
 filemap = convert_to_filemap(v)
 
